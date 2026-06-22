@@ -1,6 +1,6 @@
 # NT230.Q21.ANTT - G01 - S09: Binary Packing
 
-Đồ án môn **Malware Operation (NT230.Q21.ANTT)** - Học kỳ II, Năm học 2025-2026  
+Đồ án môn **Cơ Chế Hoạt Động Của Mã Độc (NT230.Q21.ANTT)** - Học kỳ II, Năm học 2025-2026  
 Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM
 
 ---
