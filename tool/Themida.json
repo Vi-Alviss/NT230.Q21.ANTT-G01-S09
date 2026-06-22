@@ -1,0 +1,140 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-05-31T11:25:18.073870Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 1,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/Themida.exe",
+      "file_size": 3030016,
+      "file_entropy": 7.9145,
+      "printable_string_count": 34336,
+      "risk_level": "HIGH",
+      "score": 12,
+      "signature_hit": "Themida",
+      "packer_matches": [
+        {
+          "packer_name": "Themida",
+          "confidence": "HIGH",
+          "mitre_ref": "T1027.002 / T1055.012 — Process Hollowing",
+          "detection_signals": [
+            "Byte marker: b'.themida'",
+            "Section: .themida"
+          ]
+        }
+      ],
+      "signals": [
+        {
+          "code": "ENTROPY_FILE_HIGH",
+          "description": "File entropy 7.915 > 7.0",
+          "weight": 3
+        },
+        {
+          "code": "ENTROPY_SECTION_HIGH",
+          "description": "3 section(s) entropy > 7.2",
+          "weight": 3
+        },
+        {
+          "code": "SECTION_SIZE_ANOMALY",
+          "description": "1 section(s): raw=0, virtual>0",
+          "weight": 2
+        },
+        {
+          "code": "PACKER_SIGNATURE_HIT",
+          "description": "Packer identified: Themida",
+          "weight": 4
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": ".text",
+          "entropy": 6.4528,
+          "size_of_raw_data": 259072,
+          "virtual_size": 258565,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 1,
+          "name": ".rdata",
+          "entropy": 7.1257,
+          "size_of_raw_data": 31232,
+          "virtual_size": 30828,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 2,
+          "name": ".data",
+          "entropy": 7.3561,
+          "size_of_raw_data": 28672,
+          "virtual_size": 37880,
+          "suspicious_reasons": [
+            "high section entropy (>7.2)"
+          ]
+        },
+        {
+          "index": 3,
+          "name": ".reloc",
+          "entropy": 0.1591,
+          "size_of_raw_data": 512,
+          "virtual_size": 16,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 4,
+          "name": ".rsrc",
+          "entropy": 7.9745,
+          "size_of_raw_data": 104960,
+          "virtual_size": 104668,
+          "suspicious_reasons": [
+            "high section entropy (>7.2)"
+          ]
+        },
+        {
+          "index": 5,
+          "name": ".idata",
+          "entropy": 1.6525,
+          "size_of_raw_data": 512,
+          "virtual_size": 4096,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 6,
+          "name": ".themida",
+          "entropy": 0.0,
+          "size_of_raw_data": 0,
+          "virtual_size": 4505600,
+          "suspicious_reasons": [
+            "raw size is zero but virtual size > 0"
+          ]
+        },
+        {
+          "index": 7,
+          "name": ".boot",
+          "entropy": 7.9625,
+          "size_of_raw_data": 2604032,
+          "virtual_size": 2604032,
+          "suspicious_reasons": [
+            "high section entropy (>7.2)"
+          ]
+        }
+      ],
+      "imports": {
+        "total_imports": 3,
+        "suspicious_apis": []
+      },
+      "dotnet_analysis": {
+        "is_dotnet": false,
+        "clr_version": "",
+        "obfuscators_found": [],
+        "confidence": "NONE",
+        "detection_signals": []
+      }
+    }
+  ]
+}

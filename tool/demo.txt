@@ -1,0 +1,8 @@
+python packing_detector.py /home/kali/nt230-tool/malware/payload.exe --json payload.json
+python packing_detector.py /home/kali/nt230-tool/malware/stub.exe --json stub.json
+python packing_detector.py /home/kali/nt230-tool/malware/AgentTesla.exe --json AgentTesla.json
+python packing_detector.py /home/kali/nt230-tool/malware/UPX.exe --json UPX.json
+python packing_detector.py /home/kali/nt230-tool/malware/NETReactor.exe --json NETReactor.json
+python packing_detector.py /home/kali/nt230-tool/malware/Themida.exe --json Themida.json
+python packing_detector.py /home/kali/nt230-tool/malware/Aspack.exe --json Aspack.json
+python packing_detector.py /home/kali/nt230-tool/malware/Confuser.exe --json Confuser.json

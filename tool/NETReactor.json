@@ -1,0 +1,104 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-05-31T11:25:06.517920Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 1,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/NETReactor.exe",
+      "file_size": 405504,
+      "file_entropy": 7.9769,
+      "printable_string_count": 4953,
+      "risk_level": "HIGH",
+      "score": 16,
+      "signature_hit": null,
+      "packer_matches": [
+        {
+          "packer_name": "NetReactor",
+          "confidence": "HIGH",
+          "mitre_ref": "T1027.002 — Software Packing / T1140 — Deobfuscate/Decode at Runtime",
+          "detection_signals": [
+            "[NetReactor] Import table: only mscoree.dll + _CorExeMain — NetReactor native stub pattern",
+            "[NetReactor] BSJB metadata at offset 0x1fe8 — in NetReactor native stub range (0x200–0x8000)"
+          ]
+        }
+      ],
+      "signals": [
+        {
+          "code": "ENTROPY_FILE_HIGH",
+          "description": "File entropy 7.977 > 7.0",
+          "weight": 3
+        },
+        {
+          "code": "ENTROPY_SECTION_HIGH",
+          "description": "1 section(s) entropy > 7.2",
+          "weight": 3
+        },
+        {
+          "code": "IMPORT_COUNT_LOW",
+          "description": "Import count low (1 < 3)",
+          "weight": 2
+        },
+        {
+          "code": "PACKER_SIGNATURE_HIT",
+          "description": "Packer identified: NetReactor",
+          "weight": 4
+        },
+        {
+          "code": "DOTNET_OBFUSCATOR_HIT",
+          "description": ".NET obfuscator detected (HIGH): NetReactor",
+          "weight": 4
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": ".text",
+          "entropy": 7.985,
+          "size_of_raw_data": 402944,
+          "virtual_size": 402532,
+          "suspicious_reasons": [
+            "high section entropy (>7.2)"
+          ]
+        },
+        {
+          "index": 1,
+          "name": ".rsrc",
+          "entropy": 3.9503,
+          "size_of_raw_data": 1536,
+          "virtual_size": 1392,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 2,
+          "name": ".reloc",
+          "entropy": 0.1019,
+          "size_of_raw_data": 512,
+          "virtual_size": 12,
+          "suspicious_reasons": []
+        }
+      ],
+      "imports": {
+        "total_imports": 1,
+        "suspicious_apis": []
+      },
+      "dotnet_analysis": {
+        "is_dotnet": true,
+        "clr_version": "",
+        "obfuscators_found": [
+          "NetReactor"
+        ],
+        "confidence": "HIGH",
+        "detection_signals": [
+          "[NetReactor] Import table: only mscoree.dll + _CorExeMain — NetReactor native stub pattern",
+          "[NetReactor] BSJB metadata at offset 0x1fe8 — in NetReactor native stub range (0x200–0x8000)"
+        ]
+      }
+    }
+  ]
+}

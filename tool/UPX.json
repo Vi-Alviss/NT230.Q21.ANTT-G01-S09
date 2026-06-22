@@ -1,0 +1,111 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-05-31T11:24:56.639285Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 1,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/UPX.exe",
+      "file_size": 438272,
+      "file_entropy": 7.9419,
+      "printable_string_count": 5662,
+      "risk_level": "HIGH",
+      "score": 16,
+      "signature_hit": "UPX",
+      "packer_matches": [
+        {
+          "packer_name": "UPX",
+          "confidence": "HIGH",
+          "mitre_ref": "T1027.002 — Software Packing",
+          "detection_signals": [
+            "Byte marker: b'UPX!'",
+            "Byte marker: b'UPX0'",
+            "Byte marker: b'UPX1'",
+            "Both UPX0+UPX1 section markers present",
+            "Section: UPX0",
+            "Section: UPX1"
+          ]
+        }
+      ],
+      "signals": [
+        {
+          "code": "ENTROPY_FILE_HIGH",
+          "description": "File entropy 7.942 > 7.0",
+          "weight": 3
+        },
+        {
+          "code": "ENTROPY_SECTION_HIGH",
+          "description": "1 section(s) entropy > 7.2",
+          "weight": 3
+        },
+        {
+          "code": "SECTION_NAME_SUSPICIOUS",
+          "description": "Suspicious section names: UPX0, UPX1",
+          "weight": 4
+        },
+        {
+          "code": "SECTION_SIZE_ANOMALY",
+          "description": "1 section(s): raw=0, virtual>0",
+          "weight": 2
+        },
+        {
+          "code": "PACKER_SIGNATURE_HIT",
+          "description": "Packer identified: UPX",
+          "weight": 4
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": "UPX0",
+          "entropy": 0.0,
+          "size_of_raw_data": 0,
+          "virtual_size": 1568768,
+          "suspicious_reasons": [
+            "raw size is zero but virtual size > 0",
+            "suspicious section name"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "UPX1",
+          "entropy": 7.9443,
+          "size_of_raw_data": 436736,
+          "virtual_size": 438272,
+          "suspicious_reasons": [
+            "high section entropy (>7.2)",
+            "suspicious section name"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "UPX2",
+          "entropy": 1.9342,
+          "size_of_raw_data": 512,
+          "virtual_size": 4096,
+          "suspicious_reasons": []
+        }
+      ],
+      "imports": {
+        "total_imports": 5,
+        "suspicious_apis": [
+          "GetProcAddress",
+          "LoadLibraryA",
+          "VirtualProtect"
+        ]
+      },
+      "dotnet_analysis": {
+        "is_dotnet": false,
+        "clr_version": "",
+        "obfuscators_found": [],
+        "confidence": "NONE",
+        "detection_signals": []
+      }
+    }
+  ]
+}

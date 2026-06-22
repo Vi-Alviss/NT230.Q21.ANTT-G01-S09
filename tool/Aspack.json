@@ -1,0 +1,116 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-05-31T11:25:27.444092Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 0,
+    "MEDIUM": 1,
+    "LOW": 0
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/Aspack.exe",
+      "file_size": 2840576,
+      "file_entropy": 6.813,
+      "printable_string_count": 30406,
+      "risk_level": "MEDIUM",
+      "score": 7,
+      "signature_hit": "ASPack",
+      "packer_matches": [
+        {
+          "packer_name": "ASPack",
+          "confidence": "HIGH",
+          "mitre_ref": "T1027.002 — Software Packing",
+          "detection_signals": [
+            "Byte marker: b'.aspack'",
+            "Byte marker: b'.adata'"
+          ]
+        }
+      ],
+      "signals": [
+        {
+          "code": "DROP_EXEC_PATTERN",
+          "description": "WriteFile+CreateProcess pattern — T1036: createfilew, createprocessw, writefile",
+          "weight": 3
+        },
+        {
+          "code": "PACKER_SIGNATURE_HIT",
+          "description": "Packer identified: ASPack",
+          "weight": 4
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": ".text",
+          "entropy": 6.8104,
+          "size_of_raw_data": 2049024,
+          "virtual_size": 2048778,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 1,
+          "name": ".rdata",
+          "entropy": 5.7892,
+          "size_of_raw_data": 521216,
+          "virtual_size": 520818,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 2,
+          "name": ".data",
+          "entropy": 5.7369,
+          "size_of_raw_data": 34304,
+          "virtual_size": 43900,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 3,
+          "name": ".rsrc",
+          "entropy": 5.2217,
+          "size_of_raw_data": 129024,
+          "virtual_size": 128872,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 4,
+          "name": ".reloc",
+          "entropy": 6.6344,
+          "size_of_raw_data": 89088,
+          "virtual_size": 88688,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 5,
+          "name": "Fu,",
+          "entropy": 6.9346,
+          "size_of_raw_data": 16896,
+          "virtual_size": 20480,
+          "suspicious_reasons": []
+        }
+      ],
+      "imports": {
+        "total_imports": 172,
+        "suspicious_apis": [
+          "CreateFileW",
+          "CreateProcessW",
+          "CreateRemoteThread",
+          "GetEnvironmentVariableW",
+          "GetProcAddress",
+          "LoadLibraryA",
+          "LoadLibraryW",
+          "WriteFile",
+          "WriteProcessMemory"
+        ]
+      },
+      "dotnet_analysis": {
+        "is_dotnet": false,
+        "clr_version": "",
+        "obfuscators_found": [],
+        "confidence": "NONE",
+        "detection_signals": []
+      }
+    }
+  ]
+}

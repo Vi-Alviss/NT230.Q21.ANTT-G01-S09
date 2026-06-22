@@ -1,0 +1,217 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-05-31T11:24:35.741731Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 1,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/stub.exe",
+      "file_size": 275420,
+      "file_entropy": 5.9421,
+      "printable_string_count": 4675,
+      "risk_level": "HIGH",
+      "score": 12,
+      "signature_hit": null,
+      "packer_matches": [],
+      "signals": [
+        {
+          "code": "ENTROPY_SECTION_HIGH",
+          "description": "1 section(s) entropy > 7.2",
+          "weight": 3
+        },
+        {
+          "code": "SECTION_SIZE_ANOMALY",
+          "description": "1 section(s): raw=0, virtual>0",
+          "weight": 2
+        },
+        {
+          "code": "CRYPTO_EXEC_COMBO",
+          "description": "Decrypt+Execute API combo — T1140+T1106: bcryptdecrypt, createprocessa",
+          "weight": 4
+        },
+        {
+          "code": "DROP_EXEC_PATTERN",
+          "description": "WriteFile+CreateProcess pattern — T1036: createfilea, createprocessa, writefile",
+          "weight": 3
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": ".text",
+          "entropy": 6.1853,
+          "size_of_raw_data": 32768,
+          "virtual_size": 32544,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 1,
+          "name": ".data",
+          "entropy": 7.8596,
+          "size_of_raw_data": 8192,
+          "virtual_size": 8048,
+          "suspicious_reasons": [
+            "high section entropy (>7.2)"
+          ]
+        },
+        {
+          "index": 2,
+          "name": ".rdata",
+          "entropy": 4.4981,
+          "size_of_raw_data": 4096,
+          "virtual_size": 3976,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 3,
+          "name": ".pdata",
+          "entropy": 3.3227,
+          "size_of_raw_data": 1536,
+          "virtual_size": 1140,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 4,
+          "name": ".xdata",
+          "entropy": 4.1871,
+          "size_of_raw_data": 1024,
+          "virtual_size": 1020,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 5,
+          "name": ".bss",
+          "entropy": 0.0,
+          "size_of_raw_data": 0,
+          "virtual_size": 2960,
+          "suspicious_reasons": [
+            "raw size is zero but virtual size > 0"
+          ]
+        },
+        {
+          "index": 6,
+          "name": ".idata",
+          "entropy": 3.8719,
+          "size_of_raw_data": 2560,
+          "virtual_size": 2356,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 7,
+          "name": ".tls",
+          "entropy": 0.0,
+          "size_of_raw_data": 512,
+          "virtual_size": 16,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 8,
+          "name": ".reloc",
+          "entropy": 1.5238,
+          "size_of_raw_data": 512,
+          "virtual_size": 116,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 9,
+          "name": "/4",
+          "entropy": 1.6944,
+          "size_of_raw_data": 2048,
+          "virtual_size": 1888,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 10,
+          "name": "/19",
+          "entropy": 5.8057,
+          "size_of_raw_data": 76800,
+          "virtual_size": 76528,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 11,
+          "name": "/31",
+          "entropy": 4.8669,
+          "size_of_raw_data": 14336,
+          "virtual_size": 14232,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 12,
+          "name": "/45",
+          "entropy": 5.0444,
+          "size_of_raw_data": 31232,
+          "virtual_size": 31000,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 13,
+          "name": "/57",
+          "entropy": 4.4908,
+          "size_of_raw_data": 5632,
+          "virtual_size": 5592,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 14,
+          "name": "/70",
+          "entropy": 4.6132,
+          "size_of_raw_data": 1024,
+          "virtual_size": 920,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 15,
+          "name": "/81",
+          "entropy": 4.5926,
+          "size_of_raw_data": 7168,
+          "virtual_size": 6700,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 16,
+          "name": "/97",
+          "entropy": 5.8861,
+          "size_of_raw_data": 34816,
+          "virtual_size": 34446,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 17,
+          "name": "/113",
+          "entropy": 5.8056,
+          "size_of_raw_data": 1536,
+          "virtual_size": 1445,
+          "suspicious_reasons": []
+        }
+      ],
+      "imports": {
+        "total_imports": 61,
+        "suspicious_apis": [
+          "BCryptDecrypt",
+          "BCryptDestroyKey",
+          "BCryptGenerateSymmetricKey",
+          "BCryptOpenAlgorithmProvider",
+          "CreateFileA",
+          "CreateProcessA",
+          "GetEnvironmentVariableA",
+          "GetProcAddress",
+          "VirtualProtect",
+          "WriteFile"
+        ]
+      },
+      "dotnet_analysis": {
+        "is_dotnet": false,
+        "clr_version": "",
+        "obfuscators_found": [],
+        "confidence": "NONE",
+        "detection_signals": []
+      }
+    }
+  ]
+}

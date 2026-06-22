@@ -1,0 +1,85 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-05-31T11:24:24.973150Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 1
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/payload.exe",
+      "file_size": 7680,
+      "file_entropy": 1.4148,
+      "printable_string_count": 36,
+      "risk_level": "LOW",
+      "score": 2,
+      "signature_hit": null,
+      "packer_matches": [],
+      "signals": [
+        {
+          "code": "IMPORT_COUNT_LOW",
+          "description": "Import count low (1 < 3)",
+          "weight": 2
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": ".text",
+          "entropy": 0.7265,
+          "size_of_raw_data": 512,
+          "virtual_size": 50,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 1,
+          "name": ".rdata",
+          "entropy": 2.8664,
+          "size_of_raw_data": 512,
+          "virtual_size": 408,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 2,
+          "name": ".data",
+          "entropy": 0.0258,
+          "size_of_raw_data": 4096,
+          "virtual_size": 4096,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 3,
+          "name": ".pdata",
+          "entropy": 0.098,
+          "size_of_raw_data": 512,
+          "virtual_size": 12,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 4,
+          "name": ".xolv",
+          "entropy": 4.2117,
+          "size_of_raw_data": 1024,
+          "virtual_size": 608,
+          "suspicious_reasons": []
+        }
+      ],
+      "imports": {
+        "total_imports": 1,
+        "suspicious_apis": [
+          "VirtualProtect"
+        ]
+      },
+      "dotnet_analysis": {
+        "is_dotnet": false,
+        "clr_version": "",
+        "obfuscators_found": [],
+        "confidence": "NONE",
+        "detection_signals": []
+      }
+    }
+  ]
+}

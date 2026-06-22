@@ -1,0 +1,92 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-06-22T09:07:04.392012Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 1,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/RLPack.exe",
+      "file_size": 1761138,
+      "file_entropy": 7.9964,
+      "printable_string_count": 20886,
+      "risk_level": "HIGH",
+      "score": 14,
+      "signature_hit": "Generic packer",
+      "packer_matches": [
+        {
+          "packer_name": "Generic packer",
+          "confidence": "HIGH",
+          "mitre_ref": "T1027 — Obfuscated Files or Information",
+          "detection_signals": [
+            "Section: .packed"
+          ]
+        }
+      ],
+      "signals": [
+        {
+          "code": "ENTROPY_FILE_HIGH",
+          "description": "File entropy 7.996 > 7.0",
+          "weight": 3
+        },
+        {
+          "code": "ENTROPY_SECTION_HIGH",
+          "description": "1 section(s) entropy > 7.2",
+          "weight": 3
+        },
+        {
+          "code": "SECTION_NAME_SUSPICIOUS",
+          "description": "Suspicious section names: .packed",
+          "weight": 4
+        },
+        {
+          "code": "PACKER_SIGNATURE_HIT",
+          "description": "Packer identified: Generic packer",
+          "weight": 4
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": ".packed",
+          "entropy": 6.0708,
+          "size_of_raw_data": 512,
+          "virtual_size": 4370432,
+          "suspicious_reasons": [
+            "suspicious section name"
+          ]
+        },
+        {
+          "index": 1,
+          "name": ".RLPack",
+          "entropy": 7.9966,
+          "size_of_raw_data": 1760114,
+          "virtual_size": 1773905,
+          "suspicious_reasons": [
+            "high section entropy (>7.2)"
+          ]
+        }
+      ],
+      "imports": {
+        "total_imports": 21,
+        "suspicious_apis": [
+          "GetProcAddress",
+          "LoadLibraryA",
+          "VirtualAlloc",
+          "VirtualProtect"
+        ]
+      },
+      "dotnet_analysis": {
+        "is_dotnet": false,
+        "clr_version": "",
+        "obfuscators_found": [],
+        "confidence": "NONE",
+        "detection_signals": []
+      }
+    }
+  ]
+}

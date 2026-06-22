@@ -1,0 +1,104 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-05-31T11:25:38.193607Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 1,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/Confuser.exe",
+      "file_size": 446976,
+      "file_entropy": 7.9129,
+      "printable_string_count": 5191,
+      "risk_level": "HIGH",
+      "score": 14,
+      "signature_hit": "ConfuserEx",
+      "packer_matches": [
+        {
+          "packer_name": "ConfuserEx",
+          "confidence": "MEDIUM",
+          "mitre_ref": "T1027.002 — Software Packing / T1027.010 — Command Obfuscation (.NET)",
+          "detection_signals": [
+            "Byte marker: b'ConfusedBy'",
+            "Byte marker: b'Confuser.Core'"
+          ]
+        }
+      ],
+      "signals": [
+        {
+          "code": "ENTROPY_FILE_HIGH",
+          "description": "File entropy 7.913 > 7.0",
+          "weight": 3
+        },
+        {
+          "code": "ENTROPY_SECTION_HIGH",
+          "description": "1 section(s) entropy > 7.2",
+          "weight": 3
+        },
+        {
+          "code": "IMPORT_COUNT_LOW",
+          "description": "Import count low (1 < 3)",
+          "weight": 2
+        },
+        {
+          "code": "PACKER_SIGNATURE_HIT",
+          "description": "Packer identified: ConfuserEx",
+          "weight": 2
+        },
+        {
+          "code": "DOTNET_OBFUSCATOR_HIT",
+          "description": ".NET obfuscator detected (HIGH): ConfuserEx",
+          "weight": 4
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": ".text",
+          "entropy": 7.921,
+          "size_of_raw_data": 444416,
+          "virtual_size": 444340,
+          "suspicious_reasons": [
+            "high section entropy (>7.2)"
+          ]
+        },
+        {
+          "index": 1,
+          "name": ".rsrc",
+          "entropy": 4.1072,
+          "size_of_raw_data": 1536,
+          "virtual_size": 1446,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 2,
+          "name": ".reloc",
+          "entropy": 0.1019,
+          "size_of_raw_data": 512,
+          "virtual_size": 12,
+          "suspicious_reasons": []
+        }
+      ],
+      "imports": {
+        "total_imports": 1,
+        "suspicious_apis": []
+      },
+      "dotnet_analysis": {
+        "is_dotnet": true,
+        "clr_version": "",
+        "obfuscators_found": [
+          "ConfuserEx"
+        ],
+        "confidence": "HIGH",
+        "detection_signals": [
+          "[ConfuserEx] Confuser.Core namespace reference found",
+          "[ConfuserEx] ConfusedByAttribute marker found"
+        ]
+      }
+    }
+  ]
+}

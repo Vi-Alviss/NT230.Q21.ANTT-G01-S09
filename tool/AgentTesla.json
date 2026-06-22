@@ -1,0 +1,77 @@
+{
+  "tool": "BinaryPackingDetector",
+  "version": "2.0.0",
+  "generated": "2026-05-31T11:24:45.614870Z",
+  "total_files": 1,
+  "summary": {
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 1
+  },
+  "results": [
+    {
+      "file_path": "/home/kali/nt230-tool/malware/AgentTesla.exe",
+      "file_size": 739328,
+      "file_entropy": 4.4772,
+      "printable_string_count": 804,
+      "risk_level": "LOW",
+      "score": 2,
+      "signature_hit": null,
+      "packer_matches": [],
+      "signals": [
+        {
+          "code": "IMPORT_COUNT_LOW",
+          "description": "Import count low (1 < 3)",
+          "weight": 2
+        }
+      ],
+      "sections": [
+        {
+          "index": 0,
+          "name": ".text",
+          "entropy": 4.3679,
+          "size_of_raw_data": 718848,
+          "virtual_size": 718772,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 1,
+          "name": ".sdata",
+          "entropy": 6.6384,
+          "size_of_raw_data": 512,
+          "virtual_size": 488,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 2,
+          "name": ".rsrc",
+          "entropy": 4.4386,
+          "size_of_raw_data": 18432,
+          "virtual_size": 18340,
+          "suspicious_reasons": []
+        },
+        {
+          "index": 3,
+          "name": ".reloc",
+          "entropy": 0.1019,
+          "size_of_raw_data": 512,
+          "virtual_size": 12,
+          "suspicious_reasons": []
+        }
+      ],
+      "imports": {
+        "total_imports": 1,
+        "suspicious_apis": []
+      },
+      "dotnet_analysis": {
+        "is_dotnet": true,
+        "clr_version": "",
+        "obfuscators_found": [],
+        "confidence": "NONE",
+        "detection_signals": [
+          "[NetReactor?] Import table: only mscoree.dll + _CorExeMain — NetReactor native stub pattern"
+        ]
+      }
+    }
+  ]
+}
